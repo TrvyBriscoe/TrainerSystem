@@ -5,7 +5,7 @@ using TrainerClasses;
 namespace TrainerTesting
 {
     [TestClass]
-    public class UnitTest1
+    public class tstOrderLine
     {
         [TestMethod]
         public void TestMethod1()
