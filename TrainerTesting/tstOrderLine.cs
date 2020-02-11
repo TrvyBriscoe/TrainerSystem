@@ -1,17 +1,17 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrainerClasses;
 
 namespace TrainerTesting
 {
-    [TestClass]
-    public class tstOrderLine
+    public class tstOrderline
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            clsOrderLine AnOrderLine = new clsOrderLine();
-            Assert.IsNotNull(AnOrderLine);
+       [TestMethod]
+            public void OrderLineExists()
+            {
+                clsOrderline AnOrderL = new clsOrderline();
+                Assert.IsNotNull(AnOrderL);
+            }
         }
     }
-}
+
+

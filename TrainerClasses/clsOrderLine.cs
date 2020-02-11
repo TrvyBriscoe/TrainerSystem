@@ -1,6 +1,6 @@
 ﻿namespace TrainerClasses
 {
-    public class clsOrderLine
+    public class clsOrderline
     {
     }
 }
