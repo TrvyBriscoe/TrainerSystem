@@ -15,8 +15,18 @@ public partial class AnOrderLine : System.Web.UI.Page
     protected void Button_OrderLOK_Click(object sender, EventArgs e)
     {
         clsOrderline AnOrderL = new clsOrderline();
-        AnOrderL.ONumber = TextBox_OrderLONumber.Text;
-        Session["AnOrderL"] = AnOrderL;
-        Response.Redirect("AnOrderLine.aspx");
+        
+        Session["AnOrderLine"] = AnOrderL;
+        Response.Redirect("OrderLineViewer.aspx");
+
+
+
+    }
+
+    protected void TextBox_OrderLQuantity_TextChanged(object sender, EventArgs e)
+    {
+        
+        
+        
     }
 }

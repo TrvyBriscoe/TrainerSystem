@@ -19,7 +19,7 @@
         <asp:TextBox ID="TextBox_OrderLONumber" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="Label_OrderLQuantity" runat="server" Text="Quantity"></asp:Label>
-            <asp:TextBox ID="TextBox_OrderLQuantity" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox_OrderLQuantity" runat="server" OnTextChanged="TextBox_OrderLQuantity_TextChanged"></asp:TextBox>
         </p>
         <asp:Label ID="Label4" runat="server" Text="ShoeID"></asp:Label>
         <asp:TextBox ID="TextBox_ShoeID" runat="server"></asp:TextBox>
