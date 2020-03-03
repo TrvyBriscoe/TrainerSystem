@@ -29,4 +29,22 @@ public partial class AnOrderLine : System.Web.UI.Page
         
         
     }
+
+    protected void Button_Find_Click(object sender, EventArgs e)
+    {
+        clsOrderline AnOrderline = new clsOrderline();
+        Int32 OLineNumber;
+        Boolean Found = false;
+        OLineNumber = Convert.ToInt32(TextBox_Find.Text);
+        Found = AnOrderline.Find(OLineNumber);
+        
+        if (Found == true)
+        {
+            TextBox_OrderLQuantity.Text = AnOrderline.Quantity.ToString();
+            TextBox_OrderLONumber.Text = AnOrderline.ONumber.ToString();
+            TextBox_ShoeID.Text = AnOrderline.ShoeID.ToString();
+
+        }
+
+    }
 }

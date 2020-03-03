@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 311px;
+            height: 448px;
         }
     </style>
 </head>
@@ -15,6 +15,9 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="Label_OrderLine" runat="server" Text="Order Line Number"></asp:Label>
+        <asp:TextBox ID="TextBox_Find" runat="server"></asp:TextBox>
+        <asp:Button ID="Button_Find" runat="server" Text="Find" />
         <asp:Label ID="Label_OrderLONumber" runat="server" Text="Order Number"></asp:Label>
         <asp:TextBox ID="TextBox_OrderLONumber" runat="server"></asp:TextBox>
         <p>
