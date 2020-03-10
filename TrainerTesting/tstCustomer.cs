@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TrainerTesting
 {
     [TestClass]
-    public class tstCustomer
+    public class TstCustomer
     {
         [TestMethod]
         public void TestMethod1()
