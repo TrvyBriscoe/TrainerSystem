@@ -56,25 +56,25 @@ namespace TrainerClasses
         }
 
         public bool Find(int OLineNumber)
-        {
+       {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("OLineNumber", OLineNumber);
-            DB.Execute("sproc_tblOrderLine_FilterbyOLineNumber");
+            DB.AddParameter("@OLineNumber", OLineNumber);
+            DB.Execute("sproc_tblOrderLine_FilterByOLineNumber");
 
-            if(DB.Count == 1)
-            {
-                mOLineNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OLineNumber"]);
-                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+           if(DB.Count == 1)
+           {
+              mOLineNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OLineNumber"]);
+               mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
                 mONumber = Convert.ToInt32(DB.DataTable.Rows[0]["ONumber"]);
-                mShoeID = Convert.ToInt32(DB.DataTable.Rows[0]["ShoeID"]);
+               mShoeID = Convert.ToInt32(DB.DataTable.Rows[0]["ShoeID"]);
                 return true;
             }
-            else
+           else
             {
                 return false;
-            }
+           }
 
         }
-        
+       
     }
 }
