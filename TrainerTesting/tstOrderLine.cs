@@ -5,7 +5,7 @@ using TrainerClasses;
 namespace TrainerTesting
 {
     [TestClass]
-    public class tstOrderline
+    public class TstOrderline
     {
         [TestMethod]
         public void OrderLineExists()
@@ -19,8 +19,8 @@ namespace TrainerTesting
         {
             clsOrderline AnOrderL = new clsOrderline();
             int TestData = 1;
-            AnOrderL.Active = TestData;
-            Assert.AreEqual(AnOrderL.Active, TestData);
+            AnOrderL.Quantity = TestData;
+            Assert.AreEqual(AnOrderL.Quantity, TestData);
 
         }
         [TestMethod]
@@ -28,8 +28,8 @@ namespace TrainerTesting
         {
             clsOrderline AnOrderL = new clsOrderline();
             int TestData = 6;
-            AnOrderL.Active = TestData;
-            Assert.AreEqual(AnOrderL.Active, TestData);
+            AnOrderL.OLineNumber = TestData;
+            Assert.AreEqual(AnOrderL.OLineNumber, TestData);
 
         }
         [TestMethod]
@@ -37,8 +37,8 @@ namespace TrainerTesting
         {
             clsOrderline AnOrderL = new clsOrderline();
             int TestData = 1;
-            AnOrderL.Active = TestData;
-            Assert.AreEqual(AnOrderL.Active, TestData);
+            AnOrderL.ONumber = TestData;
+            Assert.AreEqual(AnOrderL.ONumber, TestData);
 
         }
         [TestMethod]
@@ -46,9 +46,19 @@ namespace TrainerTesting
         {
             clsOrderline AnOrderL = new clsOrderline();
             int TestData = 4;
-            AnOrderL.Active = TestData;
-            Assert.AreEqual(AnOrderL.Active, TestData);
+            AnOrderL.ShoeID = TestData;
+            Assert.AreEqual(AnOrderL.ShoeID, TestData);
 
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrderline AnOrderline = new clsOrderline();
+            Boolean Found = false;
+            Int32 OLineNumber = 10;
+            Found = AnOrderline.Find(OLineNumber);
+
+            Assert.IsTrue(Found);
         }
         [TestMethod]
         public void FindOLineNumberOK()
@@ -56,10 +66,10 @@ namespace TrainerTesting
             clsOrderline AnOrderline = new clsOrderline();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OLineNumber = 6;
+            Int32 OLineNumber = 10;
             Found = AnOrderline.Find(OLineNumber);
-            
-            if (AnOrderline.OLineNumber !=6)
+
+            if (AnOrderline.OLineNumber != 10)
             {
                 OK = false;
             }
@@ -71,10 +81,10 @@ namespace TrainerTesting
             clsOrderline AnOrderline = new clsOrderline();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ONumber = 1;
+            Int32 ONumber = 8;
             Found = AnOrderline.Find(ONumber);
 
-            if (AnOrderline.ONumber != 1)
+            if (AnOrderline.ONumber != 8)
             {
                 OK = false;
             }
@@ -86,10 +96,10 @@ namespace TrainerTesting
             clsOrderline AnOrderline = new clsOrderline();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 Quantity = 1;
+            Int32 Quantity = 0;
             Found = AnOrderline.Find(Quantity);
 
-            if (AnOrderline.Quantity != 1)
+            if (AnOrderline.Quantity != 0)
             {
                 OK = false;
             }
@@ -101,10 +111,10 @@ namespace TrainerTesting
             clsOrderline AnOrderline = new clsOrderline();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 ShoeID = 4;
+            Int32 ShoeID = 3;
             Found = AnOrderline.Find(ShoeID);
 
-            if (AnOrderline.ShoeID != 4)
+            if (AnOrderline.ShoeID != 3)
             {
                 OK = false;
             }
