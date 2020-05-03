@@ -58,7 +58,7 @@ namespace TrainerClasses
 
         public bool Find(int OLineNumber)
         {
-            clsDataConnection DB = new clsDataConnection();
+            ClsDataConnection DB = new ClsDataConnection();
             DB.AddParameter("@OLineNumber", OLineNumber);
             DB.Execute("sproc_tblOrderLine_FilterByOLineNumber");
 
@@ -77,5 +77,5 @@ namespace TrainerClasses
 
         }
 
-    }
+    } 
 }
