@@ -77,5 +77,9 @@ namespace TrainerClasses
 
         }
 
+        public string Valid(object oNumber, object quantity, object shoeID)
+        {
+            return "";
+        }
     } 
 }
