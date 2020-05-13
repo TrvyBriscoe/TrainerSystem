@@ -2,7 +2,7 @@
 
 namespace TrainerClasses
 {
-    public class clsOrder
+    public class ClsOrder
     {
         private DateTime mDate;
         private Int32 mCustomerID;
@@ -65,8 +65,27 @@ namespace TrainerClasses
                 mComplete = value;
             }
         }
+          public int Active { get; set; }
+        public bool Find(int ONumber)
+        {
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@ONumber", ONumber);
+            DB.Execute("sproc_tblOrder_FilterByONumber");
 
+            if (DB.Count == 1)
+            {
+                mONumber = Convert.ToInt32(DB.DataTable.Rows[0]["ONumber"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mComplete = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderComplete"]);
+                mNotes = Convert.ToString(DB.DataTable.Rows[0]["AdditionalNotes"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DateofEntry"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-        public int Active { get; set; }
+        }
     }
 }
