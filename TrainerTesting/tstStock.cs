@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TrainerTesting
 {
     
-    public class UnitTest1
+    public class tstStock
     {
         [TestMethod]
         public void TestMethod1()
@@ -17,6 +17,8 @@ namespace TrainerTesting
         }
     }
 }
+
+
 
 
 
