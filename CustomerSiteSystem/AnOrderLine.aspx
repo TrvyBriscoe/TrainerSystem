@@ -13,22 +13,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <div style="height: 35px">
         <asp:Label ID="Label_OrderLine" runat="server" Text="Order Line Number"></asp:Label>
         <asp:TextBox ID="TextBox_Find" runat="server"></asp:TextBox>
-        <asp:Button ID="Button_Find" runat="server" Text="Find" />
+        <asp:Button ID="Button_Find" runat="server" Text="Find" OnClick="Button_Find_Click1" />
+        </div>
         <asp:Label ID="Label_OrderLONumber" runat="server" Text="Order Number"></asp:Label>
         <asp:TextBox ID="TextBox_OrderLONumber" runat="server"></asp:TextBox>
-        <p>
+        <p style="height: 61px">
             <asp:Label ID="Label_OrderLQuantity" runat="server" Text="Quantity"></asp:Label>
             <asp:TextBox ID="TextBox_OrderLQuantity" runat="server" OnTextChanged="TextBox_OrderLQuantity_TextChanged"></asp:TextBox>
         </p>
         <asp:Label ID="Label4" runat="server" Text="ShoeID"></asp:Label>
         <asp:TextBox ID="TextBox_ShoeID" runat="server"></asp:TextBox>
-        <asp:Label ID="Label_OrderLError" runat="server" Text="Error"></asp:Label>
         <asp:Button ID="Button_OrderLOK" runat="server" OnClick="Button_OrderLOK_Click" Text="OK" />
         <asp:Button ID="Button_OrderLCancel" runat="server" Text="Cancel" />
+        <asp:Label ID="Label_OrderLError" runat="server" Text="Error"></asp:Label>
     </form>
 </body>
 </html>

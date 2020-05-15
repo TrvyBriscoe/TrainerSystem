@@ -4,7 +4,7 @@ namespace TrainerClasses
 {
     public class clsOrderline
     {
-        public int Active { get; set; }
+        public bool Active { get; set; }
 
         private Int32 mOLineNumber;
         private Int32 mQuantity;
@@ -77,9 +77,44 @@ namespace TrainerClasses
 
         }
 
-        public string Valid(object oNumber, object quantity, object shoeID)
+        public string Valid(string oNumber, string quantity, string shoeID)
         {
-            return "";
+            String Error = "";
+            try
+            { 
+            int oNum = Convert.ToInt32(oNumber);
+            if (oNum == 0)
+            {
+                Error = Error + "The Order Number may not be blank :";
+            }
+
+            if (oNum > 1000)
+            {
+                Error = Error + "The Order Number has reached the max value :";
+            }
+            }
+            catch
+            {
+                Error = Error + "The ONumber was not valid: ";
+            }
+            try
+            {
+                int quan = Convert.ToInt32(quantity);
+                if (quan < 0)
+                {
+                    Error = Error + "The Quantity cannot be negative :";
+                }
+
+                if (quan > 5)
+                {
+                    Error = Error + "You cannot buy more than 5 of the same shoe :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Quantity was not valid: ";
+            }
+            return Error;
         }
     } 
 }
