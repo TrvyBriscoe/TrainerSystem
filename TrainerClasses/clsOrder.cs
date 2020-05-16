@@ -65,7 +65,7 @@ namespace TrainerClasses
                 mComplete = value;
             }
         }
-          public int Active { get; set; }
+        
         public bool Find(int ONumber)
         {
             ClsDataConnection DB = new ClsDataConnection();
@@ -86,6 +86,51 @@ namespace TrainerClasses
                 return false;
             }
 
+        }
+        public string Valid(string customerid, string notes,string date)
+        {
+            String Error = "";
+            if (notes.Length > 50)
+            {
+                Error = Error + "The length cannot exceed 50 characters :";
+            }
+            try
+            {
+                int cid = Convert.ToInt32(customerid);
+                if (cid == 0)
+                {
+                    Error = Error + "The customer id may not be blank :";
+                }
+
+                if (cid > 1000)
+                {
+                    Error = Error + "The customer id has reached the max value :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The ONumber was not valid: ";
+            }
+            
+            try
+            {
+                DateTime dat = Convert.ToDateTime(date);
+                if (dat < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past :";
+                }
+
+                if (dat > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not valid: ";
+            }
+            
+            return Error;
         }
     }
 }

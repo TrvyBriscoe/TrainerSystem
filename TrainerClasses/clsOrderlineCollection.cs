@@ -8,7 +8,7 @@ namespace TrainerClasses
     public class clsOrderlineCollection
     {
         List<clsOrderline> mOrderlineList = new List<clsOrderline>();
-
+        clsOrderline mThisOrderline = new clsOrderline();
 
         public List<clsOrderline> OrderlineList {
             get { return mOrderlineList;}
@@ -18,7 +18,7 @@ namespace TrainerClasses
         public int Count {
             get { return mOrderlineList.Count; }
             set { } }
-        public clsOrderline ThisOrderline { get; set; }
+        public clsOrderline ThisOrderline { get { return mThisOrderline; } set { mThisOrderline = value; } }
 
         public clsOrderlineCollection()
         {
@@ -40,6 +40,32 @@ namespace TrainerClasses
 
             }
 
+        }
+
+        public int Add()
+        {
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@ONumber", mThisOrderline.ONumber);
+            DB.AddParameter("@Quantity", mThisOrderline.Quantity);
+            DB.AddParameter("@ShoeID", mThisOrderline.ShoeID);
+            return DB.Execute("sproc_tblOrderline_Insert");
+        }
+
+        public void Delete()
+        {
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@OLineNumber", mThisOrderline.OLineNumber);
+            DB.Execute("sproc_tblOrderline_Delete");
+        }
+
+        public void Update()
+        {
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@OLineNumber", mThisOrderline.OLineNumber);
+            DB.AddParameter("@ONumber", mThisOrderline.ONumber);
+            DB.AddParameter("@Quantity", mThisOrderline.Quantity);
+            DB.AddParameter("@ShoeID", mThisOrderline.ShoeID);
+            DB.Execute("sproc_tblOrderline_Update");
         }
     }
 }

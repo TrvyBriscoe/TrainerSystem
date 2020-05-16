@@ -48,7 +48,6 @@ namespace TrainerTesting
             clsOrderlineCollection AllOrderlines = new clsOrderlineCollection();
             List<clsOrderline> TestList = new List<clsOrderline>();
             clsOrderline TestItem = new clsOrderline();
-            TestItem.Active = true;
             TestItem.OLineNumber = 1;
             TestItem.ONumber = 1;
             TestItem.Quantity = 1;
@@ -58,5 +57,63 @@ namespace TrainerTesting
             AllOrderlines.OrderlineList = TestList;
             Assert.AreEqual(AllOrderlines.Count, TestList.Count);
         }
-           }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsOrderlineCollection AllOrderlines = new clsOrderlineCollection();
+            clsOrderline TestItem = new clsOrderline();
+            Int32 PKey = 0;
+            TestItem.OLineNumber = 1;
+            TestItem.ONumber = 1;
+            TestItem.Quantity = 1;
+            TestItem.ShoeID = 1;
+            AllOrderlines.ThisOrderline = TestItem;
+            PKey = AllOrderlines.Add();
+            TestItem.OLineNumber = PKey;
+            AllOrderlines.ThisOrderline.Find(PKey);
+            Assert.AreEqual(AllOrderlines.ThisOrderline, TestItem);
+        }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrderlineCollection AllOrderlines = new clsOrderlineCollection();
+            clsOrderline TestItem = new clsOrderline();
+            Int32 PKey = 0;
+            TestItem.OLineNumber = 1;
+            TestItem.ONumber = 1;
+            TestItem.Quantity = 1;
+            TestItem.ShoeID = 1;
+            AllOrderlines.ThisOrderline = TestItem;
+            PKey = AllOrderlines.Add();
+            TestItem.OLineNumber = PKey;
+            AllOrderlines.ThisOrderline.Find(PKey);
+            AllOrderlines.Delete();
+            Boolean Found = AllOrderlines.ThisOrderline.Find(PKey);
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsOrderlineCollection AllOrderlines = new clsOrderlineCollection();
+            clsOrderline TestItem = new clsOrderline();
+            Int32 PKey = 1;
+            TestItem.OLineNumber = 1;
+            TestItem.ONumber = 1;
+            TestItem.Quantity = 1;
+            TestItem.ShoeID = 1;
+            AllOrderlines.ThisOrderline = TestItem;
+            PKey = AllOrderlines.Add();
+            TestItem.OLineNumber = PKey;
+            TestItem.OLineNumber = 8;
+            TestItem.ONumber = 3;
+            TestItem.Quantity = 3;
+            TestItem.ShoeID = 2;
+            AllOrderlines.ThisOrderline = TestItem;
+            AllOrderlines.Update();
+            AllOrderlines.ThisOrderline.Find(PKey);
+            Assert.AreEqual(AllOrderlines.ThisOrderline, TestItem);
+
+        }
+    }
 }
+
