@@ -4,12 +4,13 @@ namespace TrainerClasses
 {
     public class clsOrderline
     {
-        public bool Active { get; set; }
+     
 
         private Int32 mOLineNumber;
         private Int32 mQuantity;
         private Int32 mShoeID;
         private Int32 mONumber;
+        
         public Int32 OLineNumber
         {
             get
@@ -55,6 +56,8 @@ namespace TrainerClasses
                 mONumber = value;
             }
         }
+
+        
 
         public bool Find(int OLineNumber)
         {
