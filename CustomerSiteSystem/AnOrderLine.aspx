@@ -15,7 +15,7 @@
     <form id="form1" runat="server">
         <div style="height: 35px">
         <asp:Label ID="Label_OrderLine" runat="server" Text="Order Line Number"></asp:Label>
-        <asp:TextBox ID="TextBox_Find" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox_Find" runat="server" ></asp:TextBox>
         <asp:Button ID="Button_Find" runat="server" Text="Find" OnClick="Button_Find_Click1" />
         </div>
         <asp:Label ID="Label_OrderLONumber" runat="server" Text="Order Number"></asp:Label>
