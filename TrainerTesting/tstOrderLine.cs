@@ -136,6 +136,34 @@ namespace TrainerTesting
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void ONumberExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ONumber = "-20"; //this should be o
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ONumberMinMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ONumber = "0"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
         public void ONumberMin()
         {
             //create an instance of the class we want to create
@@ -244,7 +272,35 @@ namespace TrainerTesting
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            String ONumber = "This is not a number"; //this should fail
+            String ONumber = "a"; //this should fail
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void QuantityMinMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String Quantity = "-1"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void QuantityExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String Quantity = "-1000"; //this should be ok
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
@@ -359,7 +415,150 @@ namespace TrainerTesting
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            String Quantity = "This is not a number"; //this should fail
+            String Quantity = "a"; //this should fail
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "-20"; //this should be o
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDMinMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "0"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDMin()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "1"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoeIDMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "2"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoeIDMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "999"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDMax()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "1000"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ShoeIDMid()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "500"; //this should be ok
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "1001"; //this should fail
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "2000"; //this should fail
+            //invoke the method
+            Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ShoeIDInvalidDataType()
+        {
+            //create an instance of the class we want to create
+            clsOrderline AnOrderline = new clsOrderline();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String ShoeID = "a"; //this should fail
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct

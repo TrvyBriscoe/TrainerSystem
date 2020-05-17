@@ -156,6 +156,48 @@ namespace TrainerTesting
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
+        public void CustomerIDExtremeMin()
+        {
+            //create an instance of the class we want to create
+            ClsOrder AnOrder = new ClsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String CustomerID = "-20"; //this should be o
+            //invoke the method
+            Error = AnOrder.Valid(CustomerID, Notes, Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerIDMinMinusOne()
+        {
+            //create an instance of the class we want to create
+            ClsOrder AnOrder = new ClsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String CustomerID = "0"; //this should be ok
+            //invoke the method
+            Error = AnOrder.Valid(CustomerID, Notes, Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerIDInvalidDataType()
+        {
+            //create an instance of the class we want to create
+            ClsOrder AnOrder = new ClsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            String CustomerID = "a"; //this should fail
+            //invoke the method
+            Error = AnOrder.Valid(CustomerID, Notes, Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
         public void CustomerIDMin()
         {
             //create an instance of the class we want to create

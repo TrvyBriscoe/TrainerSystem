@@ -95,6 +95,10 @@ namespace TrainerClasses
             {
                 Error = Error + "The Order Number has reached the max value :";
             }
+            if(oNum <0)
+                {
+                    Error = Error + "Order Number cannot be negative";
+                }
             }
             catch
             {
@@ -116,6 +120,27 @@ namespace TrainerClasses
             catch
             {
                 Error = Error + "The Quantity was not valid: ";
+            }
+            try
+            {
+                int shoe = Convert.ToInt32(shoeID);
+                if (shoe == 0)
+                {
+                    Error = Error + "The ShoeID may not be blank :";
+                }
+
+                if (shoe > 1000)
+                {
+                    Error = Error + "The ShoeID has reached the max value :";
+                }
+                if (shoe < 0)
+                {
+                    Error = Error + "The shoeID cannot be negative";
+                }
+            }
+            catch
+            {
+                Error = Error + "The ShoeID entered was not valid: ";
             }
             return Error;
         }

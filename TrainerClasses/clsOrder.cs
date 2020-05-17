@@ -106,6 +106,10 @@ namespace TrainerClasses
                 {
                     Error = Error + "The customer id has reached the max value :";
                 }
+                if(cid < 0)
+                {
+                    Error = Error + "Customer id cannot be negative";
+                }
             }
             catch
             {
