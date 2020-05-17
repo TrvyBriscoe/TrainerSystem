@@ -9,7 +9,7 @@ namespace TrainerTesting
     {
         string CustomerID = "1";
         string Notes = "notes";
-        string Date = "16/05/2020";
+        string Date = DateTime.Now.Date.ToString();
         [TestMethod]
         public void OrderExists()
         {
@@ -240,7 +240,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrder.Valid(CustomerID, Notes, Date);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIDExtremeMax()
@@ -254,7 +254,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrder.Valid(CustomerID, Notes, Date);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NotesMin()
@@ -345,7 +345,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrder.Valid(CustomerID, Notes, Date);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void NotesExtremeMax()
@@ -360,7 +360,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrder.Valid(CustomerID, Notes, Date);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DateAddedExtremeMin()
@@ -457,9 +457,9 @@ namespace TrainerTesting
             //change the date to whatever the date is plus 100 years
             TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
-            String Date = TestDate.ToString();
+            String Dated = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(CustomerID, Notes, Date);
+            Error = AnOrder.Valid(CustomerID, Notes, Dated);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }

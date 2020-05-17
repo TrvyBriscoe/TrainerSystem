@@ -91,7 +91,7 @@ namespace TrainerTesting
             Int32 OLineNumber = 8;
             Found = AnOrderline.Find(OLineNumber);
 
-            if (AnOrderline.Quantity != 4)
+            if (AnOrderline.Quantity != 3)
             {
                 OK = false;
             }
@@ -121,7 +121,7 @@ namespace TrainerTesting
             Int32 OLineNumber = 8;
             Found = AnOrderline.Find(OLineNumber);
 
-            if (AnOrderline.ShoeID != 1)
+            if (AnOrderline.ShoeID != 2)
             {
                 OK = false;
             }
@@ -220,7 +220,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ONumberExtremeMax()
@@ -234,7 +234,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ONumberInvalidDataType()
@@ -248,7 +248,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void QuantityMin()
@@ -335,7 +335,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void QuantityExtremeMax()
@@ -349,7 +349,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void QuantityInvalidDataType()
@@ -363,7 +363,7 @@ namespace TrainerTesting
             //invoke the method
             Error = AnOrderline.Valid(ONumber, Quantity, ShoeID);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
     }
 }

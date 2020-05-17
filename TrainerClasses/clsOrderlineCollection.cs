@@ -22,23 +22,10 @@ namespace TrainerClasses
 
         public clsOrderlineCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
+         
             ClsDataConnection DB = new ClsDataConnection();
             DB.Execute("sproc_tblOrderline_SelectAll");
-            RecordCount = DB.Count;
-
-            while (Index < RecordCount)
-            {
-                clsOrderline AnOrderline = new clsOrderline();
-                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["OLineNumber"]);
-                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ONumber"]);
-                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
-                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ShoeID"]);
-                mOrderlineList.Add(AnOrderline);
-                Index++;
-
-            }
+            PopulateArray(DB);
 
         }
 
@@ -66,6 +53,32 @@ namespace TrainerClasses
             DB.AddParameter("@Quantity", mThisOrderline.Quantity);
             DB.AddParameter("@ShoeID", mThisOrderline.ShoeID);
             DB.Execute("sproc_tblOrderline_Update");
+        }
+
+        public void FilterByONum(int ONumber)
+        {
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@ONumber", ONumber);
+            DB.Execute("sproc_tblOrderline_FilterByONumber");
+            PopulateArray(DB);
+        }
+        void PopulateArray(ClsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mOrderlineList = new List<clsOrderline>();
+            while (Index < RecordCount)
+            {
+                clsOrderline AnOrderline = new clsOrderline();
+                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["OLineNumber"]);
+                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ONumber"]);
+                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["Quantity"]);
+                AnOrderline.OLineNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ShoeID"]);
+                mOrderlineList.Add(AnOrderline);
+                Index++;
+
+            }
         }
     }
 }

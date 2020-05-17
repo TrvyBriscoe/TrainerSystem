@@ -114,6 +114,37 @@ namespace TrainerTesting
             Assert.AreEqual(AllOrderlines.ThisOrderline, TestItem);
 
         }
+        [TestMethod]
+        public void FilterByONumber()
+        {
+            clsOrderlineCollection AllOrderlines = new clsOrderlineCollection();
+            clsOrderlineCollection FilteredOrderlines = new clsOrderlineCollection();
+            FilteredOrderlines.FilterByONum(1);
+            Assert.AreEqual(AllOrderlines.Count, FilteredOrderlines.Count);
+        }
+        [TestMethod]
+        public void FilterByONumberTestDataFound()
+        {
+            clsOrderlineCollection FilteredOLines = new clsOrderlineCollection();
+            Boolean OK = true;
+            FilteredOLines.FilterByONum(10);
+            if (FilteredOLines.Count == 2)
+            {
+                if (FilteredOLines.OrderlineList[0].OLineNumber != 8)
+                {
+                    OK = false;
+                }
+                if (FilteredOLines.OrderlineList[1].OLineNumber != 9)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
 
