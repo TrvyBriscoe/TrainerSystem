@@ -109,7 +109,7 @@ namespace TrainerClasses
             }
             catch
             {
-                Error = Error + "The ONumber was not valid: ";
+                Error = Error + "The customer id not valid: ";
             }
             
             try
