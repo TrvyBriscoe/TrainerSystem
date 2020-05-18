@@ -312,7 +312,7 @@ namespace TrainerTesting
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-
+       
         [TestMethod]
         public void NotesMinPlusOne()
         {
