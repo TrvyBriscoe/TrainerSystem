@@ -46,12 +46,13 @@ namespace TrainerClasses
 
         public int Add()
         {
-             ClsDataConnection DB = new ClsDataConnection();
-              DB.AddParameter("@AdditionalNotes", mThisOrder.Notes);
-             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
-             DB.AddParameter("@OrderComplete", mThisOrder.Complete);
-             DB.AddParameter("@DateOfEntry", mThisOrder.Date);
-             return DB.Execute("sproc_tblOrder_Insert");
+            ClsDataConnection DB = new ClsDataConnection();
+            DB.AddParameter("@ONumber", mThisOrder.ONumber);
+            DB.AddParameter("@AdditionalNotes", mThisOrder.Notes);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@OrderComplete", mThisOrder.Complete);
+            DB.AddParameter("@DateOfEntry", mThisOrder.Date);
+            return DB.Execute("sproc_tblOrder_Insert");
          
             
     }
