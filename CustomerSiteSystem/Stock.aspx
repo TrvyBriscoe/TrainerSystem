@@ -10,11 +10,12 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label6" runat="server" Text="Show ID"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox5" runat="server" MaxLength="1" ReadOnly="True"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox5" runat="server" MaxLength="1" ></asp:TextBox>
             &nbsp;
             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Find" />
             <br />
 
+          
 
             <asp:Label ID="Label1" runat="server" Text="Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;

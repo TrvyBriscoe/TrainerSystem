@@ -57,6 +57,7 @@
     <Compile Include="tstOrderline.cs" />
     <Compile Include="tstOrder.cs" />
     <Compile Include="tstOrderCollection.cs" />
+    <Compile Include="testStockCollection1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

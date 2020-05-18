@@ -44,4 +44,9 @@ public partial class OrderList : System.Web.UI.Page
             Label_OEr.Text = "Please select a record from the list to delete";
         }
     }
+
+    protected void ListBox_Order_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
